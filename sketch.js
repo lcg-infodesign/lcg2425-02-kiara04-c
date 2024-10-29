@@ -1,16 +1,20 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noLoop();
+  //cambio disegno dopo un intervallo di tempo in automatico
+  setInterval(() => {
+    location.reload();
+  }, 5000);
 }
 
 function draw() {
   background("white");
-  //quantità, lunghezza e forma
   noFill();
   blendMode(MULTIPLY);
   strokeWeight(3);
   stroke(random(0,255),random(0,255),random(220,255));
   
+  //righe di glifi
   for(let i=0;i<20;i++){
     push();
     translate((70*i)+70,70);
@@ -46,11 +50,7 @@ function repetition(number=3,side=50,points=4){
 }
 
 function drawWorm(side=50,points=7){
-  //ogni volta che richiamo la funzione si prendono
-  //punti casuali nello spazio e li unisco con una linea
-  //let side=40;
-  //let points=7;
-  
+  //funzione per disegnare glifi con random  
   beginShape();
   for(let p=0; p<points;p++){
     let x=random(side);
